@@ -176,3 +176,9 @@ If you’re open to contributions:
 - **Create a Feature Branch:** Work on a new feature or fix on a separate branch.
 - **Submit a Pull Request:** Submit a pull request with your changes.
 
+
+# Licensing
+
+Specify the license under which the project is distributed. For example:
+This project is licensed under the MIT License - see the [LICENSE]() file for details.
+
