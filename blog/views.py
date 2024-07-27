@@ -121,7 +121,8 @@ def post_likes(request, pk):
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user) 
-
+        return redirect(request.META.get("HTTP_REFERER"))
+    
 class AddCommentView(CreateView):
     model = comment
     form_class = CommentForm
