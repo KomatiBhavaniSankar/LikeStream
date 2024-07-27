@@ -102,7 +102,15 @@ def search(request):
         return render(request, 'blog/search.html', {})
     
 
+def search_user(request):
+    if request.method == "POST":  
+        search = request.POST.get('search', '')
+        # Search the database for users whose username or email contains the search term
+        searched = User.objects.filter(username__icontains=search)
+        
+        return render(request, 'blog/search_user.html', {'search': search, 'searched': searched})
 
+    return render(request, 'blog/search_user.html', {})
 
 
 
