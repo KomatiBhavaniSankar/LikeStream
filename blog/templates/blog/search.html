@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <h1>Search <span id="Like">Post</span></h1>
+</br>
+<form method=POST>
+{% csrf_token%}
+<input type="input" class="form-control"  placeholder="Search Post!" name="search">
+<br>
+<br>
+<button type="submit" class="btn btn-secondary">Search Post!</button>
+<br>
+</br>
+{% if searched %}
+<h3>You searched for: {{ search }}</h3>
+{% for post in searched %} <br></br>
+<article class="media content-section">
+    <img class= "rounded-circle article-img" src='{{ post.author.profile.image.url }}'>
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+      <small class="text-muted">{{ post.data_posted }}</small>
+    </div>
+    <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+    <p class="article-content">{{ post.content }}</p>
+   </div>
+  </article>
+{% endfor %}
+
+{% endif %}
+{% endblock content %}

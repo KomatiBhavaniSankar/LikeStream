@@ -88,12 +88,34 @@ def about(request):
 
 
 
+def search(request):
+    if request.method == "POST":  
+        #grad the form field input
+          
+        search = request.POST['search']
+        #Search the database
+        searched = Post.objects.filter(title__contains = search)
+        
+        return render(request, 'blog/search.html', {'search':search, 'searched':searched})
 
+    else: 
+        return render(request, 'blog/search.html', {})
+    
 
 
 
 
 
     
+
+class AddCommentView(CreateView):
+    model = comment
+    form_class = CommentForm
+    template_name= 'blog/add_comment.html'
+    def form_valid(self,form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+    
+    success_url = reverse_lazy('blog-home')
 
 
