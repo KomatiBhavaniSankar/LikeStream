@@ -8,7 +8,7 @@ class Post(models.Model):
     content = models.TextField()
     data_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-  
+    likes = models.ManyToManyField(User, related_name="post_like", blank=True)
 
 
     #TRACK OR COUNT OF LIKES
