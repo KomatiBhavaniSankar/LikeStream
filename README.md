@@ -1,6 +1,6 @@
 # LikeStream
 LikeStream is a minimal blogging site built using the Django web framework. It allows users to post blogs, interact with others through comments, and engage with content via likes.
-
+OVERVIEW OF LIKESTREAM : https://drive.google.com/file/d/1M-ieMNC2RZLoLYdwmS1PEHmilP7Bcsag/view?usp=sharing
 # Features
 
 - User registration and login.
